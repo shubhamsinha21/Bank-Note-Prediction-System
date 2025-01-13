@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Note Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bank Note Predictor</h1>
+        <form action="/predict" method="POST"> # data passed to this endpoint
+            <label for="vwit">VWTI:</label>
+            <input type="text" id="vwti" name="vwti" required>
+
+            <label for="swit">SWTI:</label>
+            <input type="text" id="swti" name="swti" required>
+
+            <label for="cwit">CWIT:</label>
+            <input type="text" id="cwit" name="cwit" required>
+
+            <label for="ei">EI:</label>
+            <input type="text" id="ei" name="ei" required>
+
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+
+</html>
