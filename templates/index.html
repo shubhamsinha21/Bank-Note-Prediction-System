@@ -11,15 +11,16 @@
 <body>
     <div class="container">
         <h1>Bank Note Predictor</h1>
-        <form action="/predict" method="POST"> # data passed to this endpoint
+        <form action="/predict" method="POST">
+            <!-- data passed to this endpoint -->
             <label for="vwit">VWTI:</label>
             <input type="text" id="vwti" name="vwti" required>
 
             <label for="swit">SWTI:</label>
             <input type="text" id="swti" name="swti" required>
 
-            <label for="cwit">CWIT:</label>
-            <input type="text" id="cwit" name="cwit" required>
+            <label for="cwit">CWTI:</label>
+            <input type="text" id="cwti" name="cwti" required>
 
             <label for="ei">EI:</label>
             <input type="text" id="ei" name="ei" required>
@@ -27,6 +28,24 @@
 
             <button type="submit">Predict</button>
         </form>
+
+        <!-- In order to write python code in html, we use Ginger template  -->
+        <!-- if there is a prediction on frontend from backend -->
+        {% if prediction %}
+        <div>
+            {% if prediction=="Real" %}
+            <h4>Real Note Prediction</h4>
+            <!-- in flask, we show image in this syntax -->
+            <img src="{{url_for('static', filename='real.png')}}" alt="images">
+            {% endif %}
+
+            {% if prediction=="Fake" %}
+            <h4>Fake Note Prediction</h4>
+            <!-- in flask, we show image in this syntax -->
+            <img src="{{url_for('static', filename='fake.png')}}" alt="images">
+            {% endif %}
+        </div>
+        {% endif %}
     </div>
 </body>
 
